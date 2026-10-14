@@ -1,6 +1,7 @@
 
 import './App.css'
 import { StartScreen } from './components/StartScreen/StartScreen'
+import { GalleryScene } from './components/GalleryScene/GalleryScene'
 import { useState } from 'react'
 function App() {
   const [isGameRunning, setIsGameRunning] = useState(false)
@@ -10,7 +11,12 @@ function App() {
   }
   return (
     <>
-        <StartScreen onSendStatusGame = {handleClickFromStartPage}/>
+    {isGameRunning ? (
+      <GalleryScene />
+     ) : (
+      <StartScreen onSendStatusGame = {handleClickFromStartPage}/>
+     )}
+        
          </>
   )
 }
