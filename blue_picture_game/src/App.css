@@ -210,3 +210,26 @@
     width: 100%;
   display: block;
 }
+.wrapper-modal{
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 20;
+}
+.clue-modal-window{
+  position: fixed;
+    max-width: 70vw;
+    max-height: 55vh;
+        width: 50%;
+
+          top: 50%;
+  left: 50%;
+  transform: translate(-50%, -65%);
+  z-index: 30;
+}
+.clue-modal-window img {
+  max-width: 80vw;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
