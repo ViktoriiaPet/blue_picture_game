@@ -32,3 +32,28 @@
 .daniel-position:hover {
   opacity: 0.7;
 }
+.left-arrow {
+  position: absolute;
+  height: 10%;
+  transform: translateX(-650%) translateY(420%);
+}
+
+.right-arrow {
+  position: absolute;
+  height: 10%;
+  transform: translateX(565%) translateY(420%);
+}
+.down-arrow {
+  position: absolute;
+  height: 10%;
+  transform: translateX(0%) translateY(845%);
+}
+.up-arrow {
+    position: absolute;
+  height: 10%;
+  transform: translateX(0%) translateY(80%);
+}
+
+[class*="arrow"]:hover{
+  filter: drop-shadow(0 0 5px rgba(255, 230, 150, 0.7));
+}
