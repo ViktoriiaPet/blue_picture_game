@@ -21,30 +21,37 @@ const handleClickNext = ():void => {
     }
 }
 }
-
+const namePerson = DialogueWindowData.text[0].toUpperCase() + DialogueWindowData.text.slice(1)
+const imagePath = `/images/persons/${DialogueWindowData.dialogue?.character}/${DialogueWindowData.dialogue?.mood}.png`
 
 
     return(
-        <div>
-            <div onClick={DialogueWindowData.onClose}>
+        <div className="dialog-window dialogue-box">
+            <div onClick={DialogueWindowData.onClose} className="dialogue-close">
                 <p>X</p>
             </div>
-            <div>
-                <p>{DialogueWindowData.text}</p>
+            <div className="dialogue-name">
+                <p>{namePerson}</p>
             </div>
-            <div>
+            
                 {DialogueWindowData.dialogue && (
                 <>
-                <p>{DialogueWindowData.dialogue.text[lineNumber]}</p>
+                <div className="dialogue-photo">
+                     <img src={imagePath} alt="character image" />
+                </div>
+               
+                <p className=" dialogue-text">{DialogueWindowData.dialogue.text[lineNumber]}</p>
+                <div className="dialogue-next">
                 {dialogLengh && lineNumber >= dialogLengh - 1 ? (
-                    <GameButton text="cerrar" buttonOnClick={DialogueWindowData.onClose} />
+                    <GameButton text="Cerrar" buttonOnClick={DialogueWindowData.onClose} />
                 ) : (
-                     <GameButton text="siguiente" buttonOnClick={handleClickNext} />
+                     <GameButton text="Siguiente" buttonOnClick={handleClickNext} />
                 )}
+                </div>
                 </>)
                 }
 
-            </div>
+            
         </div>
     )
 
