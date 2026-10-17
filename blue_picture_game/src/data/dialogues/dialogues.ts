@@ -23,7 +23,7 @@ export const claraDialogs: DialogLine[] = [
       "Estaba en su sitio y no observé nada fuera de lo normal.",
       "Después tuve que ocuparme de otros preparativos. No puedo asegurarte qué ocurrió más tarde."
     ],
-    mood: "thinking",
+    mood: "neutral",
     priority: 2,
     requires: [],
     repeatable: false,
@@ -37,7 +37,7 @@ export const claraDialogs: DialogLine[] = [
       "Entonces, la desaparición tuvo que producirse en un intervalo muy breve.",
       "A esa hora había personal trabajando en distintas zonas de la galería. Tendrás que averiguar quién pudo acercarse al cuadro."
     ],
-    mood: "thinking",
+    mood: "sad",
     priority: 3,
     requires: ["photoWithPicture", "photoWithoutPicture"],
     repeatable: false,
@@ -75,7 +75,7 @@ export const claraDialogs: DialogLine[] = [
 {   id: "firstDialogDaniel",
     character: "daniel",
     text: ["Hola. Me han dicho que estás investigando la desaparición del cuadro. No sé si podré ayudarte mucho, pero pregunta lo que necesites.", "Esta tarde estuve ayudando con los preparativos de la exposición. Después me fui a hacer un recado.", "No vi nada extraño. Todo parecía normal."],
-    mood: "happy",
+    mood: "neutral",
     priority: 10,
     requires: [],
     repeatable: false,
@@ -99,7 +99,7 @@ export const claraDialogs: DialogLine[] = [
         "Recuerdo haber visto a Sofía cerca de la zona de almacenamiento. Llevaba su equipo fotográfico.",
          "No sé si eso significa algo. Ella trabajaba en la exposición, así que no me pareció extraño."
     ],
-    mood: "thinking",
+    mood: "nervous",
     priority: 2,
     requires: ["photoWithPicture", "photoWithoutPicture"],
     repeatable: false,
@@ -138,7 +138,7 @@ export const sofiaDialogs: DialogLine[] = [
       "Soy Sofía, la fotógrafa de la exposición. He estado haciendo fotos por toda la galería para documentarlo todo.",
       "¡Ojalá pudiera ayudarte a encontrar el cuadro! Pregúntame lo que quieras."
     ],
-    mood: "happy",
+    mood: "neutral",
     priority: 10,
     requires: [],
     repeatable: false,
@@ -152,7 +152,7 @@ export const sofiaDialogs: DialogLine[] = [
       "A las 17:36 el cuadro seguía ahí. Unos minutos después, cuando volví a fotografiar la sala, ya había desaparecido.",
       "¡Es increíble que alguien pudiera llevárselo en tan poco tiempo! Yo estaba concentrada en las fotos."
     ],
-    mood: "happy",
+    mood: "thinking",
     priority: 2,
     requires: ["photoWithPicture", "photoWithoutPicture"],
     repeatable: false,
@@ -196,7 +196,7 @@ export const sofiaDialogs: DialogLine[] = [
       "Quería venderlo. Me convencí de que podría hacerlo sin que nadie saliera perjudicado, pero sabía perfectamente que estaba haciendo algo terrible.",
       "Lo siento. De verdad. Sé que he decepcionado a todo el mundo."
     ],
-    mood: "sad",
+    mood: "soSad",
     priority: 10,
     requires: ["picture", "sueloEstropeado", "sofiaEquipment", "sofiaPhotos"],
     repeatable: false,
@@ -209,7 +209,7 @@ export const sofiaDialogs: DialogLine[] = [
       "¡Ojalá pudiera ayudarte más! Espero que encuentres el cuadro pronto.",
       "Si recuerdo algo importante, te lo diré."
     ],
-    mood: "happy",
+    mood: "neutral",
     priority: 1,
     requires: [],
     repeatable: true,
