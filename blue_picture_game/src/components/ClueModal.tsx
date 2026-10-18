@@ -13,10 +13,10 @@ export function ClueModal (ClueModalProps:ClueModalProps){
         return(
             <div className="wrapper-modal">
                 <div className="clue-modal-window">
-                    <div>{ClueModalProps.clue.title}</div>
-                    <div>{ClueModalProps.clue.description}</div>
+                    <div className="clue-title">{ClueModalProps.clue.title}</div>
+                    <div className="clue-description">{ClueModalProps.clue.description}</div>
                     <img src = {ClueModalProps.clue.image} alt={ClueModalProps.clue.title} />
-                    <div onClick={handleCloseModal}>X</div>
+                    <div onClick={handleCloseModal} className="cruz">X</div>
                 </div>
             </div>
         )
