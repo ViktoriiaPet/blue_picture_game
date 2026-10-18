@@ -3,6 +3,7 @@
 export const claraDialogs: DialogLine[] = [
   {
     id: "firstDialogClara",
+    title: "Saludo",
     character: "clara",
     text: [
       "Hola. Soy Clara, la responsable de la galería. Me han informado de la desaparición del cuadro.",
@@ -17,6 +18,7 @@ export const claraDialogs: DialogLine[] = [
   },
   {
     id: "claraSawPicture",
+    title: "Cuadro",
     character: "clara",
     text: [
       "Sí, vi el cuadro por última vez alrededor de las cinco y media.",
@@ -31,6 +33,7 @@ export const claraDialogs: DialogLine[] = [
   },
   {
     id: "claraPhotos",
+    title: "Fotografías",
     character: "clara",
     text: [
       "¿Las fotografías fueron tomadas a las 17:36 y a las 17:41?",
@@ -45,6 +48,7 @@ export const claraDialogs: DialogLine[] = [
   },
   {
     id: "claraDamagedFloor",
+    title: "Las marcas en el suelo",
     character: "clara",
     text: [
       "¿Marcas en el suelo? Qué extraño… No recuerdo haberlas visto antes.",
@@ -59,6 +63,7 @@ export const claraDialogs: DialogLine[] = [
   },
   {
     id: "claraRepit",
+    title: "Nada",
     character: "clara",
     text: [
       "No tengo nada más que añadir por ahora.",
@@ -73,6 +78,7 @@ export const claraDialogs: DialogLine[] = [
 ];
  export const danielDialogs :DialogLine[] = [
 {   id: "firstDialogDaniel",
+   title: "Saludo",
     character: "daniel",
     text: ["Hola. Me han dicho que estás investigando la desaparición del cuadro. No sé si podré ayudarte mucho, pero pregunta lo que necesites.", "Esta tarde estuve ayudando con los preparativos de la exposición. Después me fui a hacer un recado.", "No vi nada extraño. Todo parecía normal."],
     mood: "neutral",
@@ -82,6 +88,7 @@ export const claraDialogs: DialogLine[] = [
     requiresDialogs: []
 },
 {   id: "resTicket",
+   title: "El ticket",
     character: "daniel",
     text: ["¿Un recibo de la cafetería? Sí, es mío. Compré algo allí a las 17:42.", "Bueno… No me fui de la galería a las cinco y veinte, como te dije. Me quedé más tiempo del que pensaba.",
         "No te lo conté porque tenía un asunto personal que resolver. No tiene nada que ver con el cuadro.", "Entiendo que parezca sospechoso, pero no lo robé."
@@ -93,6 +100,7 @@ export const claraDialogs: DialogLine[] = [
     requiresDialogs: ["firstDialogDaniel",]
 },
 {   id: "findPhotos",
+   title: "Fotografías",
     character: "daniel",
     text: ["¿El cuadro estaba allí a las 17:36 y había desaparecido a las 17:41? Entonces, quien lo hizo tuvo muy poco tiempo.",
          "Yo seguía por la galería durante parte de ese intervalo, pero no vi cómo desapareció.",
@@ -106,6 +114,7 @@ export const claraDialogs: DialogLine[] = [
     requiresDialogs: ["firstDialogDaniel"]
 },
 {   id: "findBlock",
+    title: "Las marcas en el suelo",
     character: "daniel",
     text: ["¿Habéis encontrado marcas en el suelo? No me había fijado en ellas.",
          "La verdad es que no entré en la zona de almacenamiento. No puedo decirte qué pasó allí.",
@@ -118,6 +127,7 @@ export const claraDialogs: DialogLine[] = [
     requiresDialogs: ["firstDialogDaniel",  "findPhotos", "resTicket"]
 },
 {   id: "danielRepit",
+    title: "Nada",
     character: "daniel",
     text: ["Ya te he contado todo lo que sé sobre la desaparición del cuadro.",
          "Ojalá pudiera ayudarte más, pero no tengo nada nuevo que añadir."
@@ -132,6 +142,7 @@ export const claraDialogs: DialogLine[] = [
 export const sofiaDialogs: DialogLine[] = [
   {
     id: "firstDialogSofia",
+    title: "Saludo",
     character: "sofia",
     text: [
       "¡Hola! ¡Tú debes de ser quien está investigando lo del cuadro! Vaya, qué día tan intenso, ¿verdad?",
@@ -146,6 +157,7 @@ export const sofiaDialogs: DialogLine[] = [
   },
   {
     id: "sofiaPhotos",
+    title: "Fotografías",
     character: "sofia",
     text: [
       "¡Ah, sí! Esas fotos son mías. Estaba haciendo las últimas tomas antes de terminar el trabajo.",
@@ -160,6 +172,7 @@ export const sofiaDialogs: DialogLine[] = [
   },
   {
     id: "sofiaEquipment",
+    title: "Lista de tareas",
     character: "sofia",
     text: [
       "Sí, dejé parte de mi equipo en la zona de almacenamiento. ¡Entre cámaras, objetivos y accesorios, siempre llevo mil cosas!",
@@ -174,6 +187,7 @@ export const sofiaDialogs: DialogLine[] = [
   },
   {
     id: "sofiaDamagedFloor",
+    title: "Las marcas en el suelo",
     character: "sofia",
     text: [
       "¿Marcas en el suelo? Uy, no me había fijado. ¡Con tanto movimiento hoy, ni siquiera he mirado dónde pisaba!",
@@ -188,6 +202,7 @@ export const sofiaDialogs: DialogLine[] = [
   },
   {
     id: "sofiaConfession",
+    title: " ",
     character: "sofia",
     text: [
       "Vale… Está bien. No puedo seguir fingiendo que no sé nada.",
@@ -204,6 +219,7 @@ export const sofiaDialogs: DialogLine[] = [
   },
   {
     id: "sofiaRepit",
+     title: "Nada",
     character: "sofia",
     text: [
       "¡Ojalá pudiera ayudarte más! Espero que encuentres el cuadro pronto.",

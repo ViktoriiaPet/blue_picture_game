@@ -20,21 +20,48 @@ export type CurrentRoomFunctionType = {
 export function GalleryScene (currentRoomFunction: CurrentRoomFunctionType) {
     const [isSelect, setIsSelect] = useState<string | null>(null);
     const [isOpenDialod, setIsOpenDialod] = useState(true)
-
+    const [availableDialogues, setAvailableDialogues] = useState<DialogLine[]>([]);
     const [currentDialogue, setCurrentDialogue] = useState<DialogLine | null>(null);
-    const handleClick = (name:string):void => {
-            setIsSelect(name)
-            setIsOpenDialod(true)
-            if(name==="clara"){
-                setCurrentDialogue(selectDialogue(claraDialogs, currentRoomFunction.gameState));
-            }
-            if(name==="daniel"){
-                setCurrentDialogue(selectDialogue(danielDialogs, currentRoomFunction.gameState));
-            }
-            if(name==="sofia"){
-                setCurrentDialogue(selectDialogue(sofiaDialogs, currentRoomFunction.gameState));
-            }
+
+    const getDialogues = (name: string): DialogLine[] => {
+    if (name === "clara") return selectDialogue(claraDialogs, currentRoomFunction.gameState);
+    if (name === "daniel") return selectDialogue(danielDialogs, currentRoomFunction.gameState);
+    if (name === "sofia") return selectDialogue(sofiaDialogs, currentRoomFunction.gameState);
+
+    return [];
+}
+const getRepeatDialogue = (name: string): DialogLine | null => {
+    let dialogArray: DialogLine[];
+
+    if (name === "clara") dialogArray = claraDialogs;
+    else if (name === "daniel") dialogArray = danielDialogs;
+    else if (name === "sofia") dialogArray = sofiaDialogs;
+    else return null;
+
+    return dialogArray.find((dialogue) => dialogue.repeatable) ?? null;
+}
+
+const handleClick = (name: string): void => {
+    setIsSelect(name);
+    setIsOpenDialod(true);
+
+    const topics = getDialogues(name);
+
+    if (topics.length === 0) {
+        setCurrentDialogue(getRepeatDialogue(name));
+        setAvailableDialogues([]);
+    } else if (topics.length === 1) {
+        setCurrentDialogue(topics[0]);
+        setAvailableDialogues([]);
+    } else {
+        setCurrentDialogue(null);
+        setAvailableDialogues(topics);
     }
+};
+    const handleSelectDialogue = (dialogue: DialogLine) => {
+        setCurrentDialogue(dialogue);
+        setAvailableDialogues([]);
+};
     const handleClose = () => {
         setIsOpenDialod(false)
     }
@@ -44,9 +71,27 @@ export function GalleryScene (currentRoomFunction: CurrentRoomFunctionType) {
     return(
         <section className="gallery-scene">
             
-           {isOpenDialod && isSelect &&
-                <DialogueWindow onClose = {handleClose} text = {isSelect} dialogue = {currentDialogue} gameSetAddDialog = {currentRoomFunction.handleSetDialogGame}/>
-           } 
+{isOpenDialod && isSelect && availableDialogues.length > 0 && (
+    <div className="dialogue-topics">
+        {availableDialogues.map((dialogue) => (
+            <button
+                key={dialogue.id}
+                onClick={() => handleSelectDialogue(dialogue)}
+            >
+                {dialogue.title}
+            </button>
+        ))}
+    </div>
+)}
+
+{isOpenDialod && isSelect && currentDialogue && (
+    <DialogueWindow
+        onClose={handleClose}
+        text={isSelect}
+        dialogue={currentDialogue}
+        gameSetAddDialog={currentRoomFunction.handleSetDialogGame}
+    />
+)}
                 
             
             <img onClick={()=> handleClick("clara")} src="/images/persons/Clara-full-cut.png" alt="Clara person" className="clara-position"/>

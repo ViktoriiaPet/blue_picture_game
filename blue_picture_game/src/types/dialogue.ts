@@ -2,6 +2,7 @@ type Mood =  "neutral" | "nervous" | "angry" | "happy" | "sad" | "soSad" | "thin
 type CharacterId = "clara" | "daniel" | "sofia"
 export type DialogLine = {
     id: string,
+    title: string,
     character: CharacterId,
     text: string[],
     mood: Mood,
