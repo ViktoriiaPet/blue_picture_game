@@ -182,7 +182,9 @@
     border-right-color: var(--border);
   }
 }
-
+.game-container{
+  position: relative;
+}
 .game-primary-button {
     background: rgba(201, 164, 78, 0.95);
     color: #303321;
@@ -314,4 +316,51 @@
 .dialogue-next {
     grid-area: 3 / 3 / 4 / 4;
 }
+.suspect-block{
+display: flex;
+    flex-direction: column;
+    position: absolute;
+        top: 10%;
+    z-index: 50;
+    background: rgba(76, 82, 48, 0.92);
+    gap: 2vw;
+    padding: 1vw;
+}
+.suspect-card {
+    cursor: pointer;
+    flex:1;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 16px;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
 
+.suspect-card:hover {
+    transform: translateY(-3px);
+}
+
+.suspect-card.selected {
+    border-color: #c9a45c;
+    box-shadow: 0 0 0 3px rgba(201, 164, 92, 0.2);
+    transform: translateY(-3px);
+}
+
+.persons-list{
+  display: flex;
+  gap:1vw
+}
+
+.suspect-photo{
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    width:9vw;
+    border-radius: 50px;
+    height: 10vw;
+    object-fit: contain
+    
+}

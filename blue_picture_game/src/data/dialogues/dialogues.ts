@@ -41,7 +41,7 @@ export const claraDialogs: DialogLine[] = [
       "A esa hora había personal trabajando en distintas zonas de la galería. Tendrás que averiguar quién pudo acercarse al cuadro."
     ],
     mood: "sad",
-    priority: 3,
+    priority: 2,
     requires: ["photoWithPicture", "photoWithoutPicture"],
     repeatable: false,
     requiresDialogs: ["firstDialogClara", "claraSawPicture"]
@@ -56,11 +56,26 @@ export const claraDialogs: DialogLine[] = [
       "Si las marcas son recientes, quizá puedan ayudarte a reconstruir lo que pasó."
     ],
     mood: "angry",
-    priority: 4,
+    priority: 2,
     requires: ["sueloEstropeado"],
     repeatable: false,
     requiresDialogs: ["firstDialogClara", "claraSawPicture"]
   },
+  {
+    id: "claraPermissionRoom",
+    title: "La sala del personal",
+    character: "clara",
+    text: [
+      "¿Quieres entrar en la sala del personal? Está bien, puedes echar un vistazo.",
+      "Allí guardamos nuestras cosas y algunos materiales de trabajo. Por favor, no cambies nada de sitio."
+    ],
+    mood: "neutral",
+    priority: 2,
+    requires: [],
+    repeatable: false,
+    requiresDialogs: ["firstDialogClara", "findPhotos"]
+  },
+
   {
     id: "claraRepit",
     title: "Nada",
@@ -104,8 +119,9 @@ export const claraDialogs: DialogLine[] = [
     character: "daniel",
     text: ["¿El cuadro estaba allí a las 17:36 y había desaparecido a las 17:41? Entonces, quien lo hizo tuvo muy poco tiempo.",
          "Yo seguía por la galería durante parte de ese intervalo, pero no vi cómo desapareció.",
-        "Recuerdo haber visto a Sofía cerca de la zona de almacenamiento. Llevaba su equipo fotográfico.",
-         "No sé si eso significa algo. Ella trabajaba en la exposición, así que no me pareció extraño."
+        "Recuerdo haber visto a Sofía cerca de la sala del personal. Llevaba su equipo fotográfico.",
+         "No sé si eso significa algo. Ella trabajaba en la exposición, así que no me pareció extraño.",
+         "Pero no puedes entrar en la sala del personal sin el permiso de Clara"
     ],
     mood: "nervous",
     priority: 2,
@@ -117,7 +133,7 @@ export const claraDialogs: DialogLine[] = [
     title: "Las marcas en el suelo",
     character: "daniel",
     text: ["¿Habéis encontrado marcas en el suelo? No me había fijado en ellas.",
-         "La verdad es que no entré en la zona de almacenamiento. No puedo decirte qué pasó allí.",
+         "La verdad es que no entré en la sala del personal. No puedo decirte qué pasó allí.",
         "Espero que encuentres al responsable. La exposición era importante para todos nosotros."
     ],
     mood: "sad",
@@ -175,7 +191,7 @@ export const sofiaDialogs: DialogLine[] = [
     title: "Lista de tareas",
     character: "sofia",
     text: [
-      "Sí, dejé parte de mi equipo en la zona de almacenamiento. ¡Entre cámaras, objetivos y accesorios, siempre llevo mil cosas!",
+      "Sí, dejé parte de mi equipo en la sala del personal. ¡Entre cámaras, objetivos y accesorios, siempre llevo mil cosas!",
       "Entré allí para preparar el material de la sesión. No pensé que fuera importante mencionarlo.",
       "Pero no toqué el cuadro, te lo aseguro."
     ],
@@ -191,7 +207,7 @@ export const sofiaDialogs: DialogLine[] = [
     character: "sofia",
     text: [
       "¿Marcas en el suelo? Uy, no me había fijado. ¡Con tanto movimiento hoy, ni siquiera he mirado dónde pisaba!",
-      "En la zona de almacenamiento había cajas y materiales por todas partes.",
+      "En la sala del personal había cajas y materiales por todas partes.",
       "Supongo que alguien pudo mover algo, pero no sé quién."
     ],
     mood: "nervous",
@@ -206,7 +222,7 @@ export const sofiaDialogs: DialogLine[] = [
     character: "sofia",
     text: [
       "Vale… Está bien. No puedo seguir fingiendo que no sé nada.",
-      "Fui yo quien se llevó el cuadro. Lo escondí en la zona de almacenamiento, detrás del panel de madera.",
+      "Fui yo quien se llevó el cuadro. Lo escondí en la sala del personal, detrás del panel de madera.",
       "Sé que parece una locura. Todo el mundo estaba pendiente de la inauguración y pensé que podría sacarlo de allí antes de que alguien se diera cuenta.",
       "Quería venderlo. Me convencí de que podría hacerlo sin que nadie saliera perjudicado, pero sabía perfectamente que estaba haciendo algo terrible.",
       "Lo siento. De verdad. Sé que he decepcionado a todo el mundo."

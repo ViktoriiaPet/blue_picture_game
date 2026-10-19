@@ -9,6 +9,7 @@ import { selectDialogue } from "../../utils/selectDialogue";
 import type { DialogLine } from "../../types/dialogue";
 import type{ CurrentRoomType } from "../../types/gameState";
 import type { GameStateType } from "../../types/gameState";
+import { WarningPopup } from "../WarningPopup";
 
 export type CurrentRoomFunctionType = {
     currentRoomFunction: (currentRoom: CurrentRoomType)=> void,
@@ -22,6 +23,7 @@ export function GalleryScene (currentRoomFunction: CurrentRoomFunctionType) {
     const [isOpenDialod, setIsOpenDialod] = useState(true)
     const [availableDialogues, setAvailableDialogues] = useState<DialogLine[]>([]);
     const [currentDialogue, setCurrentDialogue] = useState<DialogLine | null>(null);
+    const [isOpenWarning, setIsOpenWarning] = useState(false)
 
     const getDialogues = (name: string): DialogLine[] => {
     if (name === "clara") return selectDialogue(claraDialogs, currentRoomFunction.gameState);
@@ -30,6 +32,20 @@ export function GalleryScene (currentRoomFunction: CurrentRoomFunctionType) {
 
     return [];
 }
+    const handleCloseWarning = () => {
+        setIsOpenWarning(false)
+    }
+
+    const handleOpenWarning = () => {
+        if(!currentRoomFunction.gameState.displayedReplies.includes("claraPermissionRoom"))
+        {
+            setIsOpenWarning(true)    
+        } else {
+            currentRoomFunction.currentRoomFunction("StaffRoom")
+        }
+       
+
+    }
 const getRepeatDialogue = (name: string): DialogLine | null => {
     let dialogArray: DialogLine[];
 
@@ -98,7 +114,8 @@ const handleClick = (name: string): void => {
             <img onClick={()=> handleClick("sofia")} src="/images/persons/Sofia-full-cut.png" alt="Sofia person" className="sofia-position"/>
             <img onClick={()=> handleClick("daniel")} src="/images/persons/men-full-only.png" alt="Daniel person" className="daniel-position"/>
             <img src="/images/arrows/leftArrow.png" alt="Left arrow navigation" className="left-arrow" onClick = {() => currentRoomFunction.currentRoomFunction("DanielsDispatch")} />
-            <img src="/images/arrows/rightArrow.png" alt="Right arrow navigation" className="right-arrow" onClick = {() => currentRoomFunction.currentRoomFunction("StaffRoom")}/>
+            <img src="/images/arrows/rightArrow.png" alt="Right arrow navigation" className="right-arrow" onClick = {() => {handleOpenWarning()}}/>
+            {isOpenWarning && <WarningPopup text = "No puedes entrar en la sala del personal sin permiso" onClose = {handleCloseWarning}/> }
             <img src="/images/arrows/downArrow.png" alt="Down arrow navigation" className="down-arrow" onClick = {() => currentRoomFunction.currentRoomFunction("ClarasDispatch")}/>
         </section>
     )

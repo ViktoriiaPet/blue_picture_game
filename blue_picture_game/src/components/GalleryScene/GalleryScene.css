@@ -57,3 +57,48 @@
 [class*="arrow"]:hover{
   filter: drop-shadow(0 0 5px rgba(255, 230, 150, 0.7));
 }
+.warning-wrapper{
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 20;
+}
+.warning-popup{
+    position: relative;
+  display: flex;
+  flex-direction:column ;
+    max-width: 52vw;
+
+        width: 50%;
+
+          top: 20%;
+  left: 50%;
+  transform: translate(-50%, -65%);
+  z-index: 30;
+  background: rgba(76, 82, 48, 0.92);
+  border-bottom: 3px solid rgba(205, 170, 91, 0.95);
+   border-radius: 12px;
+   padding: 1vw;
+   box-sizing: border-box
+}
+.name-warning{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #E2C477;
+    letter-spacing: 0.04em;
+    padding-bottom: 1vw;
+}
+.text-warning{
+        font-size: 1rem;
+    line-height: 1.6;
+    color: #F3F0E5;
+    margin: 0;
+    text-align: center;
+    padding-bottom: 1vw;
+}
+
+.cruz{
+  position: absolute;
+  top: 4%;
+  right: 4%;
+}

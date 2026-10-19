@@ -13,6 +13,7 @@ export function StaffRoom (currentRoomFunction: CurrentRoomFunctionType) {
     const [isMoved, setIsMoved] = useState(false);
 
 
+
     const handleClueClick = (id:string) => {
         const clue = clues.find((clue) => id === clue.id)
         if(clue) {
@@ -26,6 +27,7 @@ export function StaffRoom (currentRoomFunction: CurrentRoomFunctionType) {
     const handleCloseModal = () => {
         setIsOpenModal(false)
     }
+
     return(
         <section className="staff-room-scene">
         <img src="/images/claves/sofyListDown.png" alt="Sofy todo list" className="to-do-list-clue" onClick={()=> (handleClueClick("todolistSofia"))}/>
@@ -35,6 +37,7 @@ export function StaffRoom (currentRoomFunction: CurrentRoomFunctionType) {
         <img src="/images/claves/picture.png" alt="picture" className="picture-staff-clue" onClick={()=> (handleClueClick("picture"))}/>
         <img src = "/images/arrows/leftArrow.png" alt="Left arrow navigation" className="left-arrow" onClick = {() => currentRoomFunction.currentRoomFunction("Gallery")}/>
         {isOpenModal && selectedClue && <ClueModal clue = {selectedClue} onClose = {handleCloseModal}/>}
+       
         </section>
     )
 }
