@@ -184,6 +184,10 @@
 }
 .game-container{
   position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+    flex-direction: column;
 }
 .game-primary-button {
     background: rgba(201, 164, 78, 0.95);
@@ -198,11 +202,15 @@
     background: #D8B866;
 }
 .start-screen{
-  position: relative;
+    position: relative;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
 }
 .start-screen img {
-    width: 100%;
+    max-width: 100%;
   display: block;
+  max-height: 100%;
 }
 .wrapper-modal{
   position: fixed;
@@ -240,14 +248,14 @@
   object-fit: contain;
 }
 .clue-title{
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #E2C477;
     letter-spacing: 0.04em;
     padding-bottom: 2vw;
 }
 .clue-description{
-      font-size: 1rem;
+      font-size: 1.5rem;
     line-height: 1.6;
     color: #F3F0E5;
     margin: 0;
@@ -292,7 +300,7 @@
 
 .dialogue-name {
     grid-area: 1 / 2 / 2 / 3;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #E2C477;
     letter-spacing: 0.04em;
@@ -306,7 +314,7 @@
 .dialogue-text {
     padding-left: 2vw;
     grid-area: 2 / 2 / 3 / 3;
-    font-size: 1rem;
+    font-size: 1.5rem;
     line-height: 1.6;
     color: #F3F0E5;
     margin: 0;
@@ -363,4 +371,24 @@ display: flex;
     height: 10vw;
     object-fit: contain
     
+}
+.acusar-button{
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translateY(-3px) translateX(-85px);;
+}
+.final-dialog{
+      display: flex;
+    align-items: center;
+    position: absolute;
+        top: 20%;
+        width: 70%;
+    z-index: 50;
+    background: rgba(76, 82, 48, 0.92);
+    gap: 2vw;
+    padding: 3vw;
+        transform: translateX(20%);
+        border-radius: 12px;
+
 }
