@@ -1,7 +1,7 @@
 import "./GalleryScene.css";
 import { useState } from "react";
 import { DialogueWindow } from "./DialogueWindow";
-
+import { GameButton } from "../StartScreen/GameButton";
 import { claraDialogs } from "../../data/dialogues/dialogues";
 import { danielDialogs } from "../../data/dialogues/dialogues";
 import { sofiaDialogs } from "../../data/dialogues/dialogues";
@@ -90,12 +90,13 @@ const handleClick = (name: string): void => {
 {isOpenDialod && isSelect && availableDialogues.length > 0 && (
     <div className="dialogue-topics">
         {availableDialogues.map((dialogue) => (
-            <button
+            
+            <GameButton
+                text={dialogue.title}
+                buttonOnClick={() => handleSelectDialogue(dialogue)}
                 key={dialogue.id}
-                onClick={() => handleSelectDialogue(dialogue)}
             >
-                {dialogue.title}
-            </button>
+            </GameButton>
         ))}
     </div>
 )}
