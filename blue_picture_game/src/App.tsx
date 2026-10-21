@@ -11,13 +11,16 @@ import { initialGameState } from './data/initialGameState'
 import { GameButton } from './components/StartScreen/GameButton'
 import { AccusationModal } from './AccusationModal'
 import type{ CharacterId } from './types/dialogue'
+import { Finaldialog } from './FinalDialog'
+import { sofiaDialogs } from './data/dialogues/dialogues'
 
 function App() {
   const [isGameRunning, setIsGameRunning] = useState(false)
   const [currentRoom, setCurrentRoom] = useState("Gallery")
   const [gameState, setGameState] = useState(initialGameState)
   const [isOpenAccusation, setIsOpenAccusation] = useState(false)
-  
+  const [isFoundedLodron, setIsFoundedLondron] = useState(false)
+
 
     const handleOpenAcustation = ()=> {
         setIsOpenAccusation(true)
@@ -27,10 +30,14 @@ function App() {
     }
     const handleAccusation = (suspectId: CharacterId) => {
       if (suspectId === "sofia") {
-        console.log ("You win")
+        setIsFoundedLondron(true)
+        console.log("you win", confession)
       } else {
         console.log("You need to investigate more")
       }
+    }
+    const handleCloseResultAcustation = () => {
+      setIsFoundedLondron(false)
     }
   let isPictureFound = gameState.evidenceFound.includes("picture")
 
@@ -58,7 +65,9 @@ function App() {
   }));
       }
 
-
+      const confession = sofiaDialogs.find(
+  (item) => item.id === "sofiaConfession"
+);
 
 
     let component:ReactElement
@@ -85,9 +94,11 @@ function App() {
     {!isGameRunning ? (<StartScreen onSendStatusGame = {handleClickFromStartPage}/>) :
     <div className='game-container'>
     <>{component}</>
-    {isPictureFound && <GameButton text= "Acusar" buttonOnClick={handleOpenAcustation} /> }
+    {isPictureFound && <div className='acusar-button'><GameButton text= "Acusar" buttonOnClick={handleOpenAcustation} /></div> }
     {isOpenAccusation && <AccusationModal onClose={()=>{handleCloseAcustation()}} onAccusation ={handleAccusation}/>}
+      {isFoundedLodron && confession && <Finaldialog onClose = {handleCloseResultAcustation} dialogue={confession}/>}
     </div>
+
     }
          </>
   )

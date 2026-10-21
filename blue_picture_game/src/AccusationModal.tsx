@@ -17,14 +17,18 @@ const handleSelectPerson = (id:CharacterId) => {
     setSelectedPerson(id)
 }
 const handleClickAcusar = () => {
-    if(selectedPerson) {AccusationModalProps.onAccusation(selectedPerson)}
+    if(selectedPerson) {
+        AccusationModalProps.onAccusation(selectedPerson)
+        AccusationModalProps.onClose()
+    }
     
-}
+};
 
 
 return(
+    <div className="wrapper-modal">
     <div className="suspect-block">
-        <div>¿A quién acusas?</div>
+        <div className="dialogue-name">¿A quién acusas?</div>
         <div onClick={AccusationModalProps.onClose} className="cruz">X</div>
         <div className="persons-list">
             {
@@ -32,10 +36,11 @@ return(
                     return (
                         <div className={`suspect-card ${selectedPerson === item.id ? "selected" : ""}`} key={item.id} onClick={() => {handleSelectPerson(item.id)}}>
 
-                            <div> {item.name} </div>
+                            <div className="dialogue-name"> {item.name} </div>
+
                             <img className="suspect-photo" src={item.image}/>
-                            <div> {item.role} </div>
-                            <div> {item.description} </div>
+                            <div className="dialogue-text"> {item.role} </div>
+                            <div className="dialogue-text" > {item.description} </div>
                         </div>
                     )
                 })
@@ -43,6 +48,7 @@ return(
         </div>
         <div> <GameButton text= "Acusar" buttonOnClick = {()=> {handleClickAcusar()}}/></div>
            
+    </div>
     </div>
     
 
