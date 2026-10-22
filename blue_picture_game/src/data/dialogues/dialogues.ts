@@ -221,11 +221,7 @@ export const sofiaDialogs: DialogLine[] = [
     title: " ",
     character: "sofia",
     text: [
-      "Vale… Está bien. No puedo seguir fingiendo que no sé nada.",
-      "Fui yo quien se llevó el cuadro. Lo escondí en la sala del personal, detrás del panel de madera.",
-      "Sé que parece una locura. Todo el mundo estaba pendiente de la inauguración y pensé que podría sacarlo de allí antes de que alguien se diera cuenta.",
-      "Quería venderlo. Me convencí de que podría hacerlo sin que nadie saliera perjudicado, pero sabía perfectamente que estaba haciendo algo terrible.",
-      "Lo siento. De verdad. Sé que he decepcionado a todo el mundo."
+      "Vale… Está bien. No puedo seguir fingiendo que no sé nada. \n\nFui yo quien se llevó el cuadro. Lo escondí en la sala del personal, detrás del panel de madera. Sé que parece una locura. \n\nTodo el mundo estaba pendiente de la inauguración y pensé que podría sacarlo de allí antes de que alguien se diera cuenta. Quería venderlo. Me convencí de que podría hacerlo sin que nadie saliera perjudicado, pero sabía perfectamente que estaba haciendo algo terrible. \n\nLo siento. De verdad. Sé que he decepcionado a todo el mundo."
     ],
     mood: "soSad",
     priority: 10,
