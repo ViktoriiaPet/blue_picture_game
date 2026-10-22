@@ -9,10 +9,11 @@ import { StaffRoom } from './components/roomsScene/StaffRoom'
 import type{ CurrentRoomType } from './types/gameState'
 import { initialGameState } from './data/initialGameState'
 import { GameButton } from './components/StartScreen/GameButton'
-import { AccusationModal } from './AccusationModal'
+import { AccusationModal } from './components/AccusationModal'
 import type{ CharacterId } from './types/dialogue'
-import { Finaldialog } from './FinalDialog'
+import { Finaldialog } from './components/FinalDialogTemp'
 import { sofiaDialogs } from './data/dialogues/dialogues'
+import { WarningPopup } from './components/WarningPopup'
 
 function App() {
   const [isGameRunning, setIsGameRunning] = useState(false)
@@ -20,6 +21,7 @@ function App() {
   const [gameState, setGameState] = useState(initialGameState)
   const [isOpenAccusation, setIsOpenAccusation] = useState(false)
   const [isFoundedLodron, setIsFoundedLondron] = useState(false)
+  const [isWrongAccuse, setIsWrongAccuse]=useState(false)
 
 
     const handleOpenAcustation = ()=> {
@@ -33,12 +35,20 @@ function App() {
         setIsFoundedLondron(true)
         console.log("you win", confession)
       } else {
+        handleOpenWrongAccuse()
         console.log("You need to investigate more")
       }
     }
     const handleCloseResultAcustation = () => {
       setIsFoundedLondron(false)
     }
+    const handleOpenWrongAccuse = () => {
+      setIsWrongAccuse(true)
+    }
+    const handleClodeWrongAccuse = () => {
+      setIsWrongAccuse(false)
+    }
+
   let isPictureFound = gameState.evidenceFound.includes("picture")
 
   function handleClickFromStartPage () {
@@ -96,6 +106,7 @@ function App() {
     <>{component}</>
     {isPictureFound && <div className='acusar-button'><GameButton text= "Acusar" buttonOnClick={handleOpenAcustation} /></div> }
     {isOpenAccusation && <AccusationModal onClose={()=>{handleCloseAcustation()}} onAccusation ={handleAccusation}/>}
+      {isWrongAccuse && <WarningPopup text='Aún no has llegado al final de la investigación. Piénsalo un poco más.' onClose={handleClodeWrongAccuse}/>}
       {isFoundedLodron && confession && <Finaldialog onClose = {handleCloseResultAcustation} dialogue={confession}/>}
     </div>
 
