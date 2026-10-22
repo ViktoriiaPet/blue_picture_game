@@ -95,7 +95,7 @@ export const claraDialogs: DialogLine[] = [
 {   id: "firstDialogDaniel",
    title: "Saludo",
     character: "daniel",
-    text: ["Hola. Me han dicho que estás investigando la desaparición del cuadro. No sé si podré ayudarte mucho, pero pregunta lo que necesites.", "Esta tarde estuve ayudando con los preparativos de la exposición. Después me fui a hacer un recado.", "No vi nada extraño. Todo parecía normal."],
+    text: ["Hola. Me han dicho que estás investigando la desaparición del cuadro. No sé si podré ayudarte mucho, pero pregunta lo que necesites.", "Esta tarde estuve ayudando con los preparativos de la exposición. Luego, a las 17:20, fui al bar.", "No vi nada extraño. Todo parecía normal."],
     mood: "neutral",
     priority: 10,
     requires: [],
@@ -229,7 +229,7 @@ export const sofiaDialogs: DialogLine[] = [
     ],
     mood: "soSad",
     priority: 10,
-    requires: ["picture", "sueloEstropeado", "sofiaEquipment", "sofiaPhotos"],
+    requires: ["picture", "sueloEstropeado", "sofiaEquipment", "sofiaPhotos",""],
     repeatable: false,
     requiresDialogs: ["firstDialogSofia"]
   },
