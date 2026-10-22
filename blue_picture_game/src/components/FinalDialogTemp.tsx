@@ -1,4 +1,4 @@
-import type { DialogLine } from "./types/dialogue"
+import type { DialogLine } from "../types/dialogue"
 
 type FinalDialogueProps ={
     onClose: ()=> void,
@@ -11,6 +11,8 @@ export function Finaldialog (FinalDialogueProps: FinalDialogueProps) {
     const namePerson = FinalDialogueProps.dialogue.character[0].toUpperCase() + FinalDialogueProps.dialogue.character.slice(1)
     return (<div className="warning-wrapper">
         <div className="cruz" onClick={FinalDialogueProps.onClose}>X</div>
+        <div className="final-dialog-window">
+            <p className="dialogue-name">Conclusión</p>
         <div className="final-dialog">
             
             <div className="final-information-block">
@@ -20,6 +22,7 @@ export function Finaldialog (FinalDialogueProps: FinalDialogueProps) {
             <div>
                 <p className="dialogue-text">{FinalDialogueProps.dialogue.text}</p>
             </div>
+        </div>
         </div>
 
     </div>)

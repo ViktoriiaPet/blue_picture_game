@@ -1,8 +1,8 @@
 
-import { roles } from "./data/suspects";
-import type { CharacterId } from "./types/dialogue";
+import { roles } from "../data/suspects";
+import type { CharacterId } from "../types/dialogue";
 import { useState } from "react";
-import { GameButton } from "./components/StartScreen/GameButton";
+import { GameButton } from "./StartScreen/GameButton";
 
 type AccusationModalProps ={
     onClose: () => void,
