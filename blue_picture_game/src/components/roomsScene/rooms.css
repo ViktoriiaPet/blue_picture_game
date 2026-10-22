@@ -4,7 +4,7 @@
   max-height: 100%;
   aspect-ratio: 16 / 9;
   background-image: url("/images/rooms/danielsDispatch.png");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden
@@ -15,7 +15,7 @@
   max-height: 100%;
   aspect-ratio: 16 / 9;
   background-image: url("/images/rooms/clarasDispatch.png");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden
@@ -26,7 +26,7 @@
   max-height: 100%;
   aspect-ratio: 16 / 9;
   background-image: url("/images/rooms/staffRoom.png");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden
@@ -85,7 +85,7 @@
 .block-staff-clue {
     position: absolute;
     height: 56%;
-    transform: translateX(-105%) translateY(58%);
+    transform: translateX(-105%) translateY(60%);
     opacity: 1;
     z-index: 20;
     transition: transform 0.7s ease;
