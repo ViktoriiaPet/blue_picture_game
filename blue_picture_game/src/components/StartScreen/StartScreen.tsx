@@ -24,7 +24,8 @@ export function StartScreen(onSendStatusGame: StartScreenProps) {
         }
     }
     const handleClickParent = onSendStatusGame.onSendStatusGame
-
+    const isFirstSlide = currentSlide === 0;
+    const isLastSlide = currentSlide === primaryInformation.length-1;
     return (
 
     <div className="start-screen">
@@ -32,15 +33,16 @@ export function StartScreen(onSendStatusGame: StartScreenProps) {
 
         {isOpenModal && 
         <div className="primary-history-block">
-            <div className="primary-history-block-second">
             <div className="cruz-primary" onClick={handleCloseModal}>X</div>
+            <div className="primary-history-block-second">
+            
             <p className="primary-text"><strong>{primaryInformation[currentSlide].title}</strong></p>
             <p className="primary-text">{primaryInformation[currentSlide].text}</p>
             <img className="primary-slide-photo" src={primaryInformation[currentSlide].photo} alt="slide photo" />
-            <div onClick={ () => {handleChangeSlide("plus")} } ><img className="right-arrow-history" src="/images/arrows/rightArrow.png" alt="right arrow" /></div>
-            <div onClick={() => {handleChangeSlide("minus")} } ><img className="left-arrow-history" src="/images/arrows/leftArrow.png" alt="left arrow" /></div>
             
             </div>
+            { !isLastSlide && <div onClick={ () => {handleChangeSlide("plus")} } ><img className="right-arrow-history" src="/images/arrows/rightArrow.png" alt="right arrow" /></div>}
+            { !isFirstSlide && <div onClick={() => {handleChangeSlide("minus")} } ><img className="left-arrow-history" src="/images/arrows/leftArrow.png" alt="left arrow" /></div>}
             
             </div>
             
