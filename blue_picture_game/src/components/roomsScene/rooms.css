@@ -1,0 +1,110 @@
+.daniel-dispatch-scene {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 16 / 9;
+  background-image: url("/images/rooms/danielsDispatch.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden
+}
+.clara-dispatch-scene {
+  position: relative;
+    max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 16 / 9;
+  background-image: url("/images/rooms/clarasDispatch.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden
+}
+.staff-room-scene {
+  position: relative;
+    max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 16 / 9;
+  background-image: url("/images/rooms/staffRoom.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden
+}
+.photo-position1-clue{
+    position: absolute;
+    height: 10%;
+    transform: translateX(320%) translateY(340%);
+    opacity: 0.85;
+}
+
+.photo-position2-clue{
+    position: absolute;
+    height: 10%;
+    transform: translateX(205%) translateY(325%);
+    opacity: 0.85;
+}
+
+.to-do-list-clue{
+    position: absolute;
+    height: 13%;
+    transform: translateX(17%) translateY(562%);
+    opacity: 0.85;
+}
+
+.ticket-clue{
+    position: absolute;
+    height: 13%;
+    transform: translateX(-230%) translateY(660%);
+    opacity: 0.85;
+}
+
+[class*="clue"]:hover {
+    opacity: 1;
+}
+
+.ticket-clue{
+    position: absolute;
+    height: 13%;
+    transform: translateX(-230%) translateY(660%);
+    opacity: 0.85;
+}
+
+.suelo-staff-clue{
+    position: absolute;
+    height: 13%;
+    transform: translateX(-100%) translateY(590%);
+    opacity: 0.85;
+}
+.picture-staff-clue{
+        position: absolute;
+    height: 20%;
+    transform: translateX(-154%) translateY(332%);
+    opacity: 0.85;
+}
+.block-staff-clue {
+    position: absolute;
+    height: 56%;
+    transform: translateX(-105%) translateY(60%);
+    opacity: 1;
+    z-index: 20;
+    transition: transform 0.7s ease;
+    clip-path: polygon(
+    2% 1%,
+    80% 15%,
+    95% 80%,
+    -59% 128%
+    )
+
+}
+
+.block-staff-clue.moved {
+    transform: translateX(calc(-105% + 150px)) translateY(58%);
+}
+
+.accusation-button-container{
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    z-index: 20;
+}

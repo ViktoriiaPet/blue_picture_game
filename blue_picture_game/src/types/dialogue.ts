@@ -1,0 +1,14 @@
+type Mood =  "neutral" | "nervous" | "angry" | "happy" | "sad" | "soSad" | "thinking"
+export type CharacterId = "clara" | "daniel" | "sofia"
+export type DialogLine = {
+    id: string,
+    title: string,
+    character: CharacterId,
+    text: string[],
+    mood: Mood,
+    priority: number,
+    requires: string[],
+    repeatable: boolean,
+    requiresDialogs: string[]
+
+}
