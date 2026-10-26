@@ -10,6 +10,7 @@ import type { DialogLine } from "../../types/dialogue";
 import type{ CurrentRoomType } from "../../types/gameState";
 import type { GameStateType } from "../../types/gameState";
 import { WarningPopup } from "../WarningPopup";
+import { assetPath } from "../../utils/assetPath";
 
 export type CurrentRoomFunctionType = {
     currentRoomFunction: (currentRoom: CurrentRoomType)=> void,
@@ -111,13 +112,13 @@ const handleClick = (name: string): void => {
 )}
                 
             
-            <img onClick={()=> handleClick("clara")} src="/images/persons/Clara-full-cut.png" alt="Clara person" className="clara-position"/>
-            <img onClick={()=> handleClick("sofia")} src="/images/persons/Sofia-full-cut.png" alt="Sofia person" className="sofia-position"/>
-            <img onClick={()=> handleClick("daniel")} src="/images/persons/men-full-only.png" alt="Daniel person" className="daniel-position"/>
-            <img src="/images/arrows/leftArrow.png" alt="Left arrow navigation" className="left-arrow" onClick = {() => currentRoomFunction.currentRoomFunction("DanielsDispatch")} />
-            <img src="/images/arrows/rightArrow.png" alt="Right arrow navigation" className="right-arrow" onClick = {() => {handleOpenWarning()}}/>
+            <img onClick={()=> handleClick("clara")} src={assetPath("/images/persons/Clara-full-cut.png")} alt="Clara person" className="clara-position"/>
+            <img onClick={()=> handleClick("sofia")} src={assetPath("/images/persons/Sofia-full-cut.png")} alt="Sofia person" className="sofia-position"/>
+            <img onClick={()=> handleClick("daniel")} src={assetPath("/images/persons/men-full-only.png")} alt="Daniel person" className="daniel-position"/>
+            <img src={assetPath("/images/arrows/leftArrow.png")} alt="Left arrow navigation" className="left-arrow" onClick = {() => currentRoomFunction.currentRoomFunction("DanielsDispatch")} />
+            <img src={assetPath("/images/arrows/rightArrow.png")} alt="Right arrow navigation" className="right-arrow" onClick = {() => {handleOpenWarning()}}/>
             {isOpenWarning && <WarningPopup text = "No puedes entrar en la sala del personal sin permiso" onClose = {handleCloseWarning}/> }
-            <img src="/images/arrows/downArrow.png" alt="Down arrow navigation" className="down-arrow" onClick = {() => currentRoomFunction.currentRoomFunction("ClarasDispatch")}/>
+            <img src={assetPath("/images/arrows/downArrow.png")} alt="Down arrow navigation" className="down-arrow" onClick = {() => currentRoomFunction.currentRoomFunction("ClarasDispatch")}/>
         </section>
     )
 }

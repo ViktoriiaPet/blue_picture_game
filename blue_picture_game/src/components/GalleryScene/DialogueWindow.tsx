@@ -22,7 +22,7 @@ const handleClickNext = ():void => {
 }
 }
 const namePerson = DialogueWindowData.text[0].toUpperCase() + DialogueWindowData.text.slice(1)
-const imagePath = `/images/persons/${DialogueWindowData.dialogue?.character}/${DialogueWindowData.dialogue?.mood}.png`
+const imagePath = `/blue_picture_game/images/persons/${DialogueWindowData.dialogue?.character}/${DialogueWindowData.dialogue?.mood}.png`
 
 
     return(

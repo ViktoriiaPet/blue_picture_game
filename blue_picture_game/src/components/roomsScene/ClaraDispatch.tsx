@@ -4,6 +4,7 @@ import { useState } from "react"
 import { ClueModal } from "../ClueModal"
 import { clues } from "../../data/clues/clues"
 import type { Clue } from "../../types/clueType"
+import { assetPath } from "../../utils/assetPath"
 
 export function ClarasDispatch (currentRoomFunction: CurrentRoomFunctionType) {
     const [selectedClue, setSelectedClue] = useState <Clue|null> (null)
@@ -25,9 +26,9 @@ export function ClarasDispatch (currentRoomFunction: CurrentRoomFunctionType) {
 
     return(
         <section className="clara-dispatch-scene">
-            <img src="/images/claves/photo1.png" alt="Photo 1 by Sofia" className="photo-position1-clue" onClick={()=> (handleClueClick("photoWithoutPicture"))}/>
-            <img src="/images/claves/photo2.png" alt="Photo 2 by Sofia" className="photo-position2-clue" onClick={()=> (handleClueClick("photoWithPicture"))} />
-            <img src="/images/arrows/upArrow.png" alt="Up arrow navigation" className="up-arrow" onClick = {() => currentRoomFunction.currentRoomFunction("Gallery")}/>
+            <img src={assetPath("/images/claves/photo1.png")} alt="Photo 1 by Sofia" className="photo-position1-clue" onClick={()=> (handleClueClick("photoWithoutPicture"))}/>
+            <img src={assetPath("/images/claves/photo2.png")} alt="Photo 2 by Sofia" className="photo-position2-clue" onClick={()=> (handleClueClick("photoWithPicture"))} />
+            <img src={assetPath("/images/arrows/upArrow.png")} alt="Up arrow navigation" className="up-arrow" onClick = {() => currentRoomFunction.currentRoomFunction("Gallery")}/>
             {isOpenModal && selectedClue && <ClueModal clue = {selectedClue} onClose = {handleCloseModal}/>}
         </section>
     )

@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { GameButton } from "./GameButton"
 import { primaryInformation } from "../../data/primaryHistory"
+import { assetPath } from "../../utils/assetPath"
 
 type StartScreenProps = {
     onSendStatusGame: () => void
@@ -29,7 +30,7 @@ export function StartScreen(onSendStatusGame: StartScreenProps) {
     return (
 
     <div className="start-screen">
-        <img src="/images/startPicture.png" alt="An empty frame in an art gallery" />
+        <img src={assetPath("/images/startPicture.png")} alt="An empty frame in an art gallery" />
 
         {isOpenModal && 
         <div className="primary-history-block">
@@ -41,8 +42,8 @@ export function StartScreen(onSendStatusGame: StartScreenProps) {
             <img className="primary-slide-photo" src={primaryInformation[currentSlide].photo} alt="slide photo" />
             
             </div>
-            { !isLastSlide && <div onClick={ () => {handleChangeSlide("plus")} } ><img className="right-arrow-history" src="/images/arrows/rightArrow.png" alt="right arrow" /></div>}
-            { !isFirstSlide && <div onClick={() => {handleChangeSlide("minus")} } ><img className="left-arrow-history" src="/images/arrows/leftArrow.png" alt="left arrow" /></div>}
+            { !isLastSlide && <div onClick={ () => {handleChangeSlide("plus")} } ><img className="right-arrow-history" src={assetPath("/images/arrows/rightArrow.png")} alt="right arrow" /></div>}
+            { !isFirstSlide && <div onClick={() => {handleChangeSlide("minus")} } ><img className="left-arrow-history" src={assetPath("/images/arrows/leftArrow.png")} alt="left arrow" /></div>}
             
             </div>
             

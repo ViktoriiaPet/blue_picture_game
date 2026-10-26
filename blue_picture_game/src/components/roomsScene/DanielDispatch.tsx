@@ -4,6 +4,7 @@ import { useState } from "react"
 import type { Clue } from "../../types/clueType"
 import { ClueModal } from "../ClueModal"
 import { clues } from "../../data/clues/clues"
+import { assetPath } from "../../utils/assetPath"
 
 export function DanielsDispatch (currentRoomFunction: CurrentRoomFunctionType) {
     const [selectedClue, setSelectedClue] = useState <Clue|null> (null)
@@ -24,8 +25,8 @@ export function DanielsDispatch (currentRoomFunction: CurrentRoomFunctionType) {
     }
     return(
         <section className="daniel-dispatch-scene">
-        <img src="/images/claves/ticket.png" alt="Daniel's ticket" className="ticket-clue"  onClick={()=> (handleClueClick("ticketDaniel"))}/>
-         <img src="/images/arrows/rightArrow.png" alt="Right arrow navigation" className="right-arrow" onClick = {() => currentRoomFunction.currentRoomFunction("Gallery")}/>
+        <img src={assetPath("/images/claves/ticket.png")} alt="Daniel's ticket" className="ticket-clue"  onClick={()=> (handleClueClick("ticketDaniel"))}/>
+         <img src={assetPath("/images/arrows/rightArrow.png")} alt="Right arrow navigation" className="right-arrow" onClick = {() => currentRoomFunction.currentRoomFunction("Gallery")}/>
          {isOpenModal && selectedClue && <ClueModal clue = {selectedClue} onClose = {handleCloseModal}/>}
         </section>
     )

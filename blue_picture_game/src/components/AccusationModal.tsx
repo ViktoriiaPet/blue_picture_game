@@ -3,7 +3,7 @@ import { roles } from "../data/suspects";
 import type { CharacterId } from "../types/dialogue";
 import { useState } from "react";
 import { GameButton } from "./StartScreen/GameButton";
-
+import { assetPath } from "../utils/assetPath";
 type AccusationModalProps ={
     onClose: () => void,
     onAccusation: (suspectId: CharacterId) => void
@@ -38,7 +38,7 @@ return(
 
                             <div className="dialogue-name"> {item.name} </div>
 
-                            <img className="suspect-photo" src={item.image}/>
+                            <img className="suspect-photo" src={assetPath(item.image)}/>
                             <div className="dialogue-text"> {item.role} </div>
                             <div className="dialogue-text" > {item.description} </div>
                         </div>
